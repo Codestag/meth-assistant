@@ -91,7 +91,6 @@ if ( ! class_exists( 'Meth_Assistant' ) ) :
 			require_once MA_PLUGIN_PATH . 'includes/widgets/contact.php';
 			require_once MA_PLUGIN_PATH . 'includes/widgets/testimonials.php';
 
-			require_once MA_PLUGIN_PATH . 'includes/updater/updater.php';
 		}
 	}
 endif;
