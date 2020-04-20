@@ -54,7 +54,7 @@ if ( ! class_exists( 'Meth_Assistant' ) ) :
 		 * @since 1.0
 		 */
 		public function init() {
-			add_action( 'enqueue_assets', 'plugin_assets' );
+			add_action( 'admin_enqueue_scripts', array( $this, 'scripts_and_styles' ) );
 		}
 
 		/**
@@ -89,6 +89,7 @@ if ( ! class_exists( 'Meth_Assistant' ) ) :
 		 */
 		public function includes() {
 			require_once MA_PLUGIN_PATH . 'includes/helpers.php';
+			require_once MA_PLUGIN_PATH . 'includes/widgets/stag-widget.php';
 			require_once MA_PLUGIN_PATH . 'includes/widgets/intro.php';
 			require_once MA_PLUGIN_PATH . 'includes/widgets/features.php';
 			require_once MA_PLUGIN_PATH . 'includes/widgets/feature-box.php';
@@ -118,7 +119,7 @@ if ( ! class_exists( 'Meth_Assistant' ) ) :
 			if ( 'post.php' === $hook || 'post-new.php' === $hook ) {
 				wp_enqueue_media();
 				wp_enqueue_script( 'wp-color-picker' );
-				wp_enqueue_style( 'stag-admin-metabox', MA_PLUGIN_URL . 'assets/css/stag-admin-metabox.css', array('wp-color-picker'), MA_VERSION, 'screen' );
+				wp_enqueue_style( 'stag-admin-metabox', MA_PLUGIN_URL . 'assets/css/stag-admin-metabox.css', array( 'wp-color-picker' ), MA_VERSION, 'screen' );
 			}
 		}
 
