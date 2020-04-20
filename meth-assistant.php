@@ -77,10 +77,12 @@ if ( ! class_exists( 'Meth_Assistant' ) ) :
 		}
 
 		/**
+		 * Loads required files.
 		 *
 		 * @since 1.0
 		 */
 		public function includes() {
+			require_once MA_PLUGIN_PATH . 'includes/helpers.php';
 			require_once MA_PLUGIN_PATH . 'includes/widgets/intro.php';
 			require_once MA_PLUGIN_PATH . 'includes/widgets/features.php';
 			require_once MA_PLUGIN_PATH . 'includes/widgets/feature-box.php';
