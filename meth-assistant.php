@@ -21,18 +21,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 if ( ! class_exists( 'Meth_Assistant' ) ) :
 	/**
+	 * Meth_Assistant Base Plugin Class.
 	 *
 	 * @since 1.0
 	 */
 	class Meth_Assistant {
 
 		/**
+		 * Base instance property.
 		 *
 		 * @since 1.0
 		 */
 		private static $instance;
 
 		/**
+		 * Registers a plugin instance & loads required methods.
 		 *
 		 * @since 1.0
 		 */
@@ -46,6 +49,7 @@ if ( ! class_exists( 'Meth_Assistant' ) ) :
 		}
 
 		/**
+		 * Initialize plugin hooks.
 		 *
 		 * @since 1.0
 		 */
@@ -54,6 +58,7 @@ if ( ! class_exists( 'Meth_Assistant' ) ) :
 		}
 
 		/**
+		 * Registers constants.
 		 *
 		 * @since 1.0
 		 */
@@ -65,6 +70,7 @@ if ( ! class_exists( 'Meth_Assistant' ) ) :
 		}
 
 		/**
+		 * Checks & defines undefined constants.
 		 *
 		 * @param string $name
 		 * @param string $value
@@ -130,6 +136,7 @@ function meth_assistant() {
 }
 
 /**
+ * Plugin activation notice.
  *
  * @since 1.0
  */
