@@ -91,12 +91,35 @@ if ( ! class_exists( 'Meth_Assistant' ) ) :
 			require_once MA_PLUGIN_PATH . 'includes/widgets/contact.php';
 			require_once MA_PLUGIN_PATH . 'includes/widgets/testimonials.php';
 
+			if ( is_admin() ) {
+				require_once MA_PLUGIN_PATH . 'includes/stag-admin-metabox.php';
+				require_once MA_PLUGIN_PATH . 'includes/meta/portfolio.php';
+				require_once MA_PLUGIN_PATH . 'includes/meta/team.php';
+			}
 		}
+
+		/**
+		 * Enqueue required scripts and styles.
+		 *
+		 * @param string $hook Current page slug.
+		 *
+		 * @since 1.0
+		 * @return void
+		 */
+		public function scripts_and_styles( $hook ) {
+			if ( 'post.php' === $hook || 'post-new.php' === $hook ) {
+				wp_enqueue_media();
+				wp_enqueue_script( 'wp-color-picker' );
+				wp_enqueue_style( 'stag-admin-metabox', MA_PLUGIN_URL . 'assets/css/stag-admin-metabox.css', array('wp-color-picker'), MA_VERSION, 'screen' );
+			}
+		}
+
 	}
 endif;
 
 
 /**
+ * Registers base class instance.
  *
  * @since 1.0
  */
