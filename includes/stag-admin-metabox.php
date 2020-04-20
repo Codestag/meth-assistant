@@ -81,7 +81,7 @@ function stag_create_meta_box( $post, $meta_box ) {
 						frame.toolbar.get('view').set({
 							insert: {
 								style: 'primary',
-								text: '<?php _e( 'Insert', 'meth' ); ?>',
+								text: '<?php _e( 'Insert', 'meth-assistant' ); ?>',
 
 								click: function() {
 									var models = frame.state().get('selection'),
@@ -121,14 +121,14 @@ function stag_create_meta_box( $post, $meta_box ) {
 					$('#stag_images_upload').on('click', function(e) {
 						e.preventDefault();
 						var options = {
-							title: '<?php _e( 'Create Featured Gallery', 'meth' ); ?>',
+							title: '<?php _e( 'Create Featured Gallery', 'meth-assistant' ); ?>',
 							state: 'gallery-edit',
 							frame: 'post',
 							selection: selection
 						};
 
 						if( frame || selection ) {
-							options['title'] = '<?php _e( 'Edit Featured Gallery', 'meth' ); ?>';
+							options['title'] = '<?php _e( 'Edit Featured Gallery', 'meth-assistant' ); ?>';
 						}
 
 						frame = wp.media(options).open();
@@ -136,7 +136,7 @@ function stag_create_meta_box( $post, $meta_box ) {
 						// Tweak Views
 						frame.menu.get('view').unset('cancel');
 						frame.menu.get('view').unset('separateCancel');
-						frame.menu.get('view').get('gallery-edit').el.innerHTML = '<?php _e( 'Edit Featured Gallery', 'meth' ); ?>';
+						frame.menu.get('view').get('gallery-edit').el.innerHTML = '<?php _e( 'Edit Featured Gallery', 'meth-assistant' ); ?>';
 						frame.content.get('view').sidebar.unset('gallery'); // Hide Gallery Settings in sidebar
 
 						// when editing a gallery
@@ -172,7 +172,7 @@ function stag_create_meta_box( $post, $meta_box ) {
 							frame.toolbar.get('view').set({
 								insert: {
 									style: 'primary',
-									text: '<?php _e( 'Save Featured Gallery', 'meth' ); ?>',
+									text: '<?php _e( 'Save Featured Gallery', 'meth-assistant' ); ?>',
 									click: function(){
 										var models = frame.state().get('library'),
 											ids = '';
@@ -181,7 +181,7 @@ function stag_create_meta_box( $post, $meta_box ) {
 											ids += attachment.id + ','
 										});
 
-										this.el.innerHTML = '<?php _e( 'Saving...', 'meth' ); ?>';
+										this.el.innerHTML = '<?php _e( 'Saving...', 'meth-assistant' ); ?>';
 
 										$.ajax({
 											type: 'POST',
@@ -244,9 +244,9 @@ function stag_create_meta_box( $post, $meta_box ) {
 
 				$meta          = get_post_meta( $post->ID, '_stag_image_ids', true );
 				$thumbs_output = '';
-				$button_text   = ( $meta ) ? __( 'Edit Gallery', 'meth' ) : $field['std'];
+				$button_text   = ( $meta ) ? __( 'Edit Gallery', 'meth-assistant' ) : $field['std'];
 				if ( $meta ) {
-					$field['std']  = __( 'Edit Gallery', 'meth' );
+					$field['std']  = __( 'Edit Gallery', 'meth-assistant' );
 					$thumbs        = explode( ',', $meta );
 					$thumbs_output = '';
 					foreach ( $thumbs as $thumb ) {

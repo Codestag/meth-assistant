@@ -269,7 +269,7 @@ class Stag_Widget extends WP_Widget {
 					<p>
 						<label for="<?php echo $this->get_field_id( $key ); ?>"><?php echo $setting[ 'label' ]; ?></label>
 						<select class="widefat" id="<?php echo esc_attr( $this->get_field_id( $key ) ); ?>" name="<?php echo $this->get_field_name( $key ); ?>">
-							<option value="-1"><?php _e( 'All', 'meth' ); ?></option>
+							<option value="-1"><?php _e( 'All', 'meth-assistant' ); ?></option>
 							<?php foreach( $categories as $cat ) : ?>
 								<option value="<?php echo esc_attr( $cat->term_id ); ?>" <?php selected( $cat->term_id, $value ); ?>><?php echo esc_attr( $cat->name ); ?></option>
 							<?php endforeach; ?>
@@ -325,7 +325,7 @@ class Stag_Widget extends WP_Widget {
 						<input type="text" class="widefat" id="<?php echo esc_attr( $this->get_field_id( $key ) ); ?>" name="<?php echo $this->get_field_name( $key ); ?>"value="<?php echo $value; ?>" placeholder="http://" />
 					</p>
 					<p style="margin-top: 3px;">
-						<a href="#" class="button-secondary <?php echo esc_attr( $this->get_field_id( $key ) ); ?>-add"><?php _e( 'Choose Image', 'meth' ); ?></a>
+						<a href="#" class="button-secondary <?php echo esc_attr( $this->get_field_id( $key ) ); ?>-add"><?php _e( 'Choose Image', 'meth-assistant' ); ?></a>
 					</p>
 					<script>
 						( function( $ ){

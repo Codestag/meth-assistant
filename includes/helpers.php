@@ -15,7 +15,7 @@ function stag_ajax_contact_form() {
 			$message = $_POST['contact_description'];
 
 			if( ! is_email( $email ) ) {
-				$message = __( 'Incorrect email address.', 'meth' );
+				$message = __( 'Incorrect email address.', 'meth-assistant' );
 				$type = 'error';
 			} else {
 				$emailTo = stag_theme_mod( 'theme_options', 'contact-email' );
@@ -23,7 +23,7 @@ function stag_ajax_contact_form() {
 				  $emailTo = get_option( 'admin_email' );
 				}
 
-				$subject = __( '[Contact Form] From ', 'meth' ) . $name;
+				$subject = __( '[Contact Form] From ', 'meth-assistant' ) . $name;
 				$body    = "Name: {$name} \n\nEmail: {$email} \n\nMessage: {$message} \n\n";
 				$body    .= "--\n";
 				$body    .= "This mail is sent via contact form on " . get_bloginfo('name') . "\n";
@@ -33,14 +33,14 @@ function stag_ajax_contact_form() {
 
 				wp_mail( $emailTo, $subject, $body, $headers );
 
-				$message = __( 'Thanks, your email was sent successfully.', 'meth' );
+				$message = __( 'Thanks, your email was sent successfully.', 'meth-assistant' );
 			}
 		} else {
-			$message = __( 'Please fill-in all fields.', 'meth' );
+			$message = __( 'Please fill-in all fields.', 'meth-assistant' );
 			$type = 'error';
 		}
 	} else {
-		$message = __( 'Playing Naughty, huh?', 'meth' );
+		$message = __( 'Playing Naughty, huh?', 'meth-assistant' );
 		$type = 'error';
 	}
 
