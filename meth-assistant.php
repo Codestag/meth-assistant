@@ -155,11 +155,7 @@ function meth_assistant_activation_notice() {
 function meth_assistant_activation_check() {
 	$theme = wp_get_theme(); // gets the current theme
 	if ( 'Meth' === $theme->name || 'Meth' === $theme->parent_theme ) {
-		if ( function_exists( 'is_multisite' ) && is_multisite() ) {
-			add_action( 'after_setup_theme', 'meth_assistant' );
-		} else {
-			meth_assistant();
-		}
+		add_action( 'after_setup_theme', 'meth_assistant' );
 	} else {
 		if ( ! function_exists( 'deactivate_plugins' ) ) {
 			require_once ABSPATH . 'wp-admin/includes/plugin.php';
